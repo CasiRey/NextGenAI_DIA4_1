@@ -624,7 +624,28 @@ class Orchestrateur:
         families, and look in your traces for a case where several models agree
         on a wrong value.
         """
-        raise NotImplementedError("vote_k_sur_n: to implement in TD 2 (see the procedure in the docstring).")
+        n = len(traces_question)
+        if not (n // 2 < k <= n):
+            raise ValueError("k must be a strict majority of n: n//2 < k <= n" )
+        vus = set()
+        for proposal in traces_question:
+            x = (proposal.provider, proposal.model_requested)
+            if x in vus:
+                raise ValueError(f"duplicate proposal from {x[0]}:{x[1]}")
+            vus.add(x)
+        votes = {}
+        for proposal in traces_question:
+            if proposal.verdict == "executed" and proposal.value is not None:
+                if proposal.value not in votes:
+                    votes[proposal.value] = []
+                votes[proposal.value].append(f"{proposal.provider}:{proposal.model_requested}")
+        for v, m in votes.items():
+            if len(m) >= k:
+                return {"consensus": True, "value": v, "votes": len(m), "models": m}
+        largest_count = max((len(m) for m in votes.values()), default=0) 
+        return {"consensus": False, "value": None,"votes": largest_count, "models": []}
+
+        
 
 
 # ==========================================================================
