@@ -5,9 +5,9 @@ Date : 18/11/2026
 
 ## Ce que j'ai rejoué
 
-- [ ] `python td2/etape-b/run.py` lancé sur ma machine (Windows), résultats identiques à `sorties/` : référence 446690, requêtes north et Dots à 0, requête delta à 6 clients, vérification Python à 446690
-- [ ] Les deux requêtes fausses de `sql/` correspondent à celles de `traces-td1.csv` (cellules `openrouter:cohere/north-mini-code:free:C11` et `openrouter:dots-studio/dots-3-note-preview:free:C11`)
-- [ ] Le comptage 2-of-3 et 3-of-5 donne le même résultat avec `vote_k_sur_n` (`outils/vote_table.py`, ligne C11)
+- [x] `python td2/etape-b/run.py` lancé sur ma machine (Windows), résultats identiques à `sorties/` : référence 446690, requêtes north et Dots à 0, requête delta à 6 clients, vérification Python à 446690
+- [x] Les deux requêtes fausses de `sql/` correspondent à celles de `traces-td1.csv` (cellules `openrouter:cohere/north-mini-code:free:C11` et `openrouter:dots-studio/dots-3-note-preview:free:C11`)
+- [x] Le comptage 2-of-3 et 3-of-5 donne le même résultat avec `vote_k_sur_n` (`outils/vote_table.py`, ligne C11)
 
 ## Ce que je sais expliquer
 

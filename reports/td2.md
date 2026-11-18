@@ -115,3 +115,8 @@ On inverserait cette priorité si l'allocation de l'abonnement était rare, par 
 Yohann Baduy était absent à la séance du 18/11/2026.
 
 Aide au code et à la rédaction par Claude; code relu et vérifié contre les traces.
+
+## Suite
+
+- Relecture croisée sur un autre PC : 2e relecture non réalisée
+- TD 3 : chiffrer le coût du contrôle sur les familles d'âge, où seul gpt-oss-120b a été juste partout sur ce lot.
