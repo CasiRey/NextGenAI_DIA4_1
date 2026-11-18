@@ -1,7 +1,4 @@
-# TD 2, étape 2 : faux consensus (paire B)
-
-
-Membres de la paire B : _à compléter_.
+# TD 2, étape 2 : faux consensus 
 
 | Fichier | Contenu |
 |---|---|
@@ -128,4 +125,4 @@ On a recalculé en Python à partir des CSV de `data/` (sans SQL) : mêmes 6 cli
 
 Sur C11 (famille F2), 3 modèles sur 5 se trompent et deux donnent la même valeur. Un vote ne suffit pas quand les modèles font des erreurs qui tombent sur la même valeur (ici 0). Pour un chiffre client ou un paiement sur F2, il faut une vérification déterministe (requête de référence), et un résultat à 0 doit être vérifié. On le transmet à la paire C.
 
-*Aide IA (Claude) pour la rédaction et les scripts ; requêtes réexécutées et vérifiées par la paire B.*
+*Aide IA (Claude) pour la rédaction et les scripts ; requêtes réexécutées et vérifiées par Simon et Vianney.*

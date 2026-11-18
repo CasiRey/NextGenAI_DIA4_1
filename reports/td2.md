@@ -2,6 +2,16 @@
 
 DIA4, sous-groupe 4. Séance du 18/11/2026. Aucun nouvel appel réseau : tout part des traces du TD 1 (traces-td1.csv).
 
+## Où trouver quoi
+
+| Étape | Code | Résultats |
+|---|---|---|
+| 1. Vote k-sur-n | `vote_k_sur_n` dans [skeleton-multi-llm-en.py](../skeleton-multi-llm-en.py), [outils/vote_table.py](../outils/vote_table.py) | [resultats/vote-td2.md](../resultats/vote-td2.md), [resultats/vote-td2.csv](../resultats/vote-td2.csv) |
+| 2. Faux consensus C11 | [td2/etape-b/](../td2/etape-b/) (requêtes SQL, scripts, relectures) | [td2/etape-b/sorties/](../td2/etape-b/sorties/) |
+| 3. Routage | [atelier-routage.py](../atelier-routage.py) (version d'origine : [atelier-routage-ancien.py](../atelier-routage-ancien.py)) | [resultats/routage-avant-td2.jsonl](../resultats/routage-avant-td2.jsonl), [resultats/routage-apres-td2.jsonl](../resultats/routage-apres-td2.jsonl) |
+
+Le rapport ci-dessous est le document de référence ; le dossier `td2/etape-b/` détaille l'étape 2.
+
 ## Étape 1 : le vote k-sur-n (Casimir et Lavinia)
 
 Panel 2-sur-3 : gpt-oss-120b, north-mini-code, qwen3.8-27b. Quorum 3-sur-5 : les cinq modèles du TD 1. Tableau généré par `outils/vote_table.py` avec notre `vote_k_sur_n`.
@@ -30,7 +40,7 @@ Seul cas du lot : sur C11, north-mini-code et Dots renvoient tous deux 0 (réfé
 Détail, requêtes et sorties : [td2/etape-b/README.md](../td2/etape-b/README.md). Pour rejouer : `python td2/etape-b/run.py`.
 
 
-## Étape 3 : la règle de routage (Augustin et Basile)
+## Étape 3 : la règle de routage (Casimir, Augustin et Basile)
 
 ### Taux du TD 1 par famille
 
@@ -91,3 +101,17 @@ On inverserait cette priorité si l'allocation de l'abonnement était rare, par 
 - Le vote 2-sur-3 contient qwen (Groq) : quand Groq est épuisé, le contrôle prévu n'est plus disponible non plus. Le simulateur ne vérifie la disponibilité que du premier modèle.
 - La route payante de 120b n'a pas été appelée au TD 1 : on suppose que le même modèle se comporte de la même façon chez un autre fournisseur.
 - Les coûts par requête sont estimés (tokens moyens × prix du portefeuille), pas mesurés.
+
+## Contributions
+
+| Membre | Contribution au TD 2 |
+|---|---|
+| Casimir Rey | Étapes 1 et 3 : `vote_k_sur_n` et ses tests, tableau 2-sur-3 / 3-sur-5 et explications, taux par famille, règle de routage, simulateur adapté, analyse de priorité. Intégration de l'étape 2, relecture croisée de l'étape 2, rédaction du rapport, gestion du dépôt. |
+|Lavinia Zolzettich | Collaboration avec Casimir sur l'étape A. |
+| Simon Leclercq | Étape 2 : faux consensus C11, requêtes SQL isolant chaque clause fautive, requête delta, vérification en Python (avec aide IA déclarée). |
+| Vianney Robert | Collaboration avec Simon sur l'étape B. |
+| Augustin Nilsson, Basile Chabrel | Collaboration avec Casimir sur l'étape C. |
+
+Yohann Baduy était absent à la séance du 18/11/2026.
+
+Aide au code et à la rédaction par Claude; code relu et vérifié contre les traces.
