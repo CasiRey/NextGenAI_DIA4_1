@@ -2,7 +2,7 @@
 
 DIA4, sous-groupe 4. Séance du 18/11/2026. Aucun nouvel appel réseau : tout part des traces du TD 1 (traces-td1.csv).
 
-## Étape 1 : le vote k-sur-n
+## Étape 1 : le vote k-sur-n (Casimir et Lavinia)
 
 Panel 2-sur-3 : gpt-oss-120b, north-mini-code, qwen3.8-27b. Quorum 3-sur-5 : les cinq modèles du TD 1. Tableau généré par `outils/vote_table.py` avec notre `vote_k_sur_n`.
 
@@ -17,3 +17,14 @@ Panel 2-sur-3 : gpt-oss-120b, north-mini-code, qwen3.8-27b. Quorum 3-sur-5 : les
 - **C11, consensus → abstention, à cause d'un faux consensus.** En 2-sur-3, 120b et qwen donnent 446690 : consensus juste ; north (0) est battu. En 3-sur-5, 446690 a 2 voix, mais 0 en a aussi 2 (north et Dots), et 20b donne 322160 : personne n'atteint 3, abstention. La valeur fausse ne gagne pas, mais elle empêche la bonne de gagner (voir l'étape B).
 
 Les autres abstentions sont communes aux deux quorums : sur C09, C15 et C17, gpt-oss-120b a la bonne valeur, mais aucune valeur ne dépasse 1 voix en 2-sur-3 ni 2 voix en 3-sur-5. Un seul modèle juste ne suffit pas à un quorum.
+
+
+## Étape 2 : le faux consensus (Simon et Vianney)
+
+Seul cas du lot : sur C11, north-mini-code et Dots renvoient tous deux 0 (référence 446 690). En 2-sur-3 le 0 est battu (Dots n'est pas dans le panel) ; en 3-sur-5 il fait égalité 2 contre 2 avec la bonne valeur, et le vote s'abstient. Vérifié avec notre `vote_k_sur_n`.
+
+- north : soustraction inversée (année de naissance − 2026) et `= 25` absent ; la partie gauche vaut entre −68 et −20, jamais 0 ou 1 : aucun client.
+- Dots : `birth_date = '2001-12-01'` (un seul jour au lieu d'une année, personne n'est né ce jour-là) et un filtre sur la date de commande absent de la question (aucune commande en décembre).
+- Requête delta : 6 clients (C001, C002, C003, C006, C008, C009) pour exactement 446 690 centimes, recalculés aussi en Python sans SQL.
+
+Détail, requêtes et sorties : [td2/etape-b/README.md](../td2/etape-b/README.md). Pour rejouer : `python td2/etape-b/run.py`.
